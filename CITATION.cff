@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If this engineering case study supports your work, please cite it using this metadata."
+title: "Referral Attribution Lab"
+type: software
+authors:
+  - family-names: "Al Hussein"
+    given-names: "Hasan"
+repository-code: "https://github.com/Hasan-Al-Hussein/referral-attribution-lab"
+url: "https://hasan-al-hussein.github.io/referral-attribution-lab/"
+license: MIT
+version: 1.0.0
+date-released: 2026-08-02

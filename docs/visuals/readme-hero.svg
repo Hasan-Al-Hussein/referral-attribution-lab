@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Referral Attribution Lab</title>
+  <desc id="desc">An animated five-stage referral signal moving from generation to verified signup.</desc>
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A171A"/><stop offset=".58" stop-color="#102A2E"/><stop offset="1" stop-color="#0B3443"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="168" y1="0" x2="1032" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5DD6C7"/><stop offset=".65" stop-color="#74AEDA"/><stop offset="1" stop-color="#F0A15C"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .sans{font-family:Inter,Segoe UI,Arial,sans-serif}.mono{font-family:Consolas,Menlo,monospace}
+      .signal{stroke-dasharray:9 12;animation:flow 2.6s linear infinite}.pulse{animation:pulse 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+      .fade{animation:fade 3.2s ease-in-out infinite}@keyframes flow{to{stroke-dashoffset:-42}}@keyframes pulse{0%,100%{transform:scale(.86);opacity:.65}50%{transform:scale(1.16);opacity:1}}@keyframes fade{0%,100%{opacity:.45}50%{opacity:1}}
+      @media(prefers-reduced-motion:reduce){.signal,.pulse,.fade{animation:none}}
+    </style>
+  </defs>
+  <rect width="1200" height="520" rx="32" fill="url(#canvas)"/>
+  <g opacity=".12" stroke="#D9EFEC"><path d="M0 88h1200M0 176h1200M0 264h1200M0 352h1200M0 440h1200"/><path d="M104 0v520M216 0v520M328 0v520M440 0v520M552 0v520M664 0v520M776 0v520M888 0v520M1000 0v520M1112 0v520"/></g>
+  <rect x="56" y="48" width="72" height="28" rx="14" fill="#153E3B" stroke="#5DD6C7" stroke-opacity=".5"/>
+  <text x="92" y="67" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#8AE8DD" letter-spacing="1.4">CASE 01</text>
+  <text x="56" y="132" class="sans" font-size="52" font-weight="800" fill="#EFF9F8" letter-spacing="-1.8">Referral Attribution Lab</text>
+  <text x="58" y="169" class="sans" font-size="18" fill="#B8CCCE">Reliable deep-link attribution, modeled as an inspectable state machine.</text>
+  <g transform="translate(0 16)">
+    <path d="M168 284H1032" stroke="#29474E" stroke-width="4" stroke-linecap="round"/>
+    <path d="M168 284H1032" class="signal" stroke="url(#beam)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+    <g class="sans" text-anchor="middle">
+      <g transform="translate(168 284)"><circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">01</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">GENERATE</text></g>
+      <g transform="translate(384 284)"><circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">02</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">SHARE</text></g>
+      <g transform="translate(600 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">03</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">RESOLVE</text></g>
+      <g transform="translate(816 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">04</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">SIGN UP</text></g>
+      <g transform="translate(1032 284)" class="pulse"><circle r="34" fill="#4A2B18" stroke="#F0A15C" stroke-width="3"/><circle r="24" fill="#F0A15C" opacity=".17"/><path d="M-10 0l7 7 14-17" fill="none" stroke="#FFF1E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text y="68" font-size="12" font-weight="800" fill="#F0A15C">VERIFY</text></g>
+    </g>
+  </g>
+  <g transform="translate(56 430)">
+    <rect width="1088" height="52" rx="16" fill="#102126" stroke="#29474E"/>
+    <circle cx="28" cy="26" r="5" fill="#5DD6C7" class="fade"/><text x="45" y="31" class="mono" font-size="12" fill="#B8CCCE">PERSIST FIRST</text>
+    <circle cx="252" cy="26" r="5" fill="#74AEDA"/><text x="269" y="31" class="mono" font-size="12" fill="#B8CCCE">DEDUPE ALWAYS</text>
+    <circle cx="491" cy="26" r="5" fill="#F0A15C"/><text x="508" y="31" class="mono" font-size="12" fill="#B8CCCE">CLIENT IS NOT REWARD AUTHORITY</text>
+    <text x="1050" y="31" text-anchor="end" class="mono" font-size="11" font-weight="700" fill="#8AE8DD">EXPO / RN / BRANCH / FIREBASE</text>
+  </g>
+</svg>

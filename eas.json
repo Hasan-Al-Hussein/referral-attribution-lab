@@ -1,0 +1,83 @@
+{
+  "cli": {
+    "version": "21.4.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "environment": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "NATIVE_SDK_BUILD": "1",
+        "BRANCH_ENVIRONMENT": "test"
+      },
+      "android": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "android"
+        }
+      },
+      "ios": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "ios"
+        }
+      }
+    },
+    "preview": {
+      "environment": "preview",
+      "distribution": "internal",
+      "env": {
+        "NATIVE_SDK_BUILD": "1",
+        "BRANCH_ENVIRONMENT": "test"
+      },
+      "android": {
+        "buildType": "apk",
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "android"
+        }
+      },
+      "ios": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "ios"
+        }
+      }
+    },
+    "store-test": {
+      "environment": "preview",
+      "distribution": "store",
+      "autoIncrement": true,
+      "env": {
+        "NATIVE_SDK_BUILD": "1",
+        "BRANCH_ENVIRONMENT": "test"
+      },
+      "android": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "android"
+        }
+      },
+      "ios": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "ios"
+        }
+      }
+    },
+    "production": {
+      "environment": "production",
+      "autoIncrement": true,
+      "env": {
+        "NATIVE_SDK_BUILD": "1",
+        "BRANCH_ENVIRONMENT": "live"
+      },
+      "android": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "android"
+        }
+      },
+      "ios": {
+        "env": {
+          "NATIVE_BUILD_PLATFORM": "ios"
+        }
+      }
+    }
+  }
+}

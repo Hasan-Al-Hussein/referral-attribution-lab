@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Referral Attribution Lab</title>
+  <desc id="desc">A five-node signal path forming the letters R and A.</desc>
+  <defs>
+    <linearGradient id="bg" x1="96" y1="70" x2="920" y2="954" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102A2E"/>
+      <stop offset="1" stop-color="#0A5872"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="210" y1="512" x2="814" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5DD6C7"/>
+      <stop offset="0.72" stop-color="#74AEDA"/>
+      <stop offset="1" stop-color="#F0A15C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <circle cx="512" cy="512" r="330" fill="none" stroke="#D9EFEC" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="512" cy="512" r="246" fill="none" stroke="#D9EFEC" stroke-opacity=".08" stroke-width="2"/>
+  <path d="M210 676V348h204c98 0 164 55 164 137 0 56-30 99-82 120l112 71" fill="none" stroke="url(#signal)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M584 676l109-328 121 328M633 550h132" fill="none" stroke="url(#signal)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#102A2E" stroke="#5DD6C7" stroke-width="22">
+    <circle cx="210" cy="676" r="32"/><circle cx="210" cy="348" r="32"/><circle cx="578" cy="485" r="32"/>
+  </g>
+  <circle cx="608" cy="676" r="32" fill="#102A2E" stroke="#74AEDA" stroke-width="22"/>
+  <circle cx="814" cy="676" r="38" fill="#F0A15C" stroke="#FFF1E5" stroke-width="14"/>
+</svg>

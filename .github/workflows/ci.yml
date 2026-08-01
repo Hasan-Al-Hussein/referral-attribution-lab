@@ -1,0 +1,59 @@
+name: quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.13.0
+          cache: npm
+      - run: npm install --global npm@11.6.2
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build:web
+
+  native-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      BRANCH_ENVIRONMENT: test
+      EXPO_PUBLIC_BRANCH_ALTERNATE_DOMAIN: probe-alternate.test-app.link
+      EXPO_PUBLIC_BRANCH_DOMAIN: probe.test-app.link
+      EXPO_PUBLIC_BRANCH_TEST_KEY: key_test_ci_structure_probe
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.13.0
+          cache: npm
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v5
+      - run: npm install --global npm@11.6.2
+      - run: npm ci
+      - name: Generate and verify Android native project
+        run: npm run native:prebuild:android && npm run native:verify:android
+        env:
+          GOOGLE_SERVICES_JSON: ./__tests__/fixtures/google-services.test.json
+      - name: Compile Android debug binary
+        working-directory: android
+        run: ./gradlew :app:assembleDebug --no-daemon
+      - name: Confirm Android binary exists
+        run: test -f android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Generate and verify iOS native project
+        run: npm run native:prebuild:ios && npm run native:verify:ios
+        env:
+          GOOGLE_SERVICES_PLIST: ./__tests__/fixtures/GoogleService-Info.test.plist
