@@ -3,7 +3,7 @@ message: "If this engineering case study supports your work, please cite it usin
 title: "Referral Attribution Lab"
 type: software
 authors:
-  - family-names: "Al Hussein"
+  - family-names: "Ahmed"
     given-names: "Hasan"
 repository-code: "https://github.com/Hasan-Al-Hussein/referral-attribution-lab"
 url: "https://hasan-al-hussein.github.io/referral-attribution-lab/"
