@@ -1,121 +1,156 @@
 <div align="center">
 
-![Referral Attribution Lab](docs/visuals/readme-hero.svg)
+<img src="docs/visuals/readme-hero-v2.svg" alt="Referral Attribution Lab — reliable referral identity from share to verified signup" width="100%">
 
 # Referral Attribution Lab
 
-**A production-shaped React Native case study for reliable referral attribution.**
+**A production-shaped React Native case study for referral attribution that survives links, installs, restarts, retries, and interrupted signup.**
 
-Generate a durable referral identity, carry it through direct or deferred deep links, preserve it across process boundaries, and expose every accepted milestone in an inspectable event ledger.
+Generate one durable referral identity, carry it through direct or deferred deep links, route the recipient with the code pre-applied, and make every accepted milestone observable.
 
 [![Live demo](https://img.shields.io/badge/LIVE_DEMO-OPEN-0B8178?style=for-the-badge)](https://hasan-al-hussein.github.io/referral-attribution-lab/)
 [![Quality](https://img.shields.io/github/actions/workflow/status/Hasan-Al-Hussein/referral-attribution-lab/ci.yml?branch=main&style=for-the-badge&label=QUALITY)](https://github.com/Hasan-Al-Hussein/referral-attribution-lab/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/JEST-174_PASSING-D87532?style=for-the-badge)](https://github.com/Hasan-Al-Hussein/referral-attribution-lab/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/COVERAGE-90.40%25-397FAD?style=for-the-badge)](docs/RELIABILITY_EVIDENCE.md)
 [![Expo](https://img.shields.io/badge/EXPO-56-102A2E?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
-[![TypeScript](https://img.shields.io/badge/TYPESCRIPT-STRICT-397FAD?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tests](https://img.shields.io/badge/TESTS-174_PASSING-D87532?style=for-the-badge)](https://github.com/Hasan-Al-Hussein/referral-attribution-lab/actions/workflows/ci.yml)
+[![TypeScript](https://img.shields.io/badge/TYPESCRIPT-STRICT-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-[Experience the flow](https://hasan-al-hussein.github.io/referral-attribution-lab/) · [Architecture](docs/ARCHITECTURE.md) · [Reliability evidence](docs/RELIABILITY_EVIDENCE.md) · [Native proof runbook](docs/NATIVE_PROOF_RUNBOOK.md) · [Security and privacy](docs/SECURITY_AND_PRIVACY.md)
+[Launch the interactive demo](https://hasan-al-hussein.github.io/referral-attribution-lab/) · [Study the architecture](docs/ARCHITECTURE.md) · [Inspect reliability evidence](docs/RELIABILITY_EVIDENCE.md) · [Review security](docs/SECURITY_AND_PRIVACY.md)
 
 </div>
 
-## Why this project exists
+## The problem
 
-Referral attribution looks simple until a click, an app install, a cold launch, a signup, and an analytics delivery happen in different processes and sometimes on different devices. This project treats that path as a reliability problem rather than a URL parameter demo.
+A referral is not just a URL. One journey can cross two devices, an app store, a cold launch, several asynchronous SDKs, account creation, and an unreliable analytics connection. A naive implementation silently loses attribution, double-counts events, or credits the wrong identity.
 
-The implementation is deliberately split into two honest execution modes:
+Referral Attribution Lab treats that journey as a distributed reliability problem:
 
-| Mode | What it proves | What it does not claim |
-| --- | --- | --- |
-| Credential-free web demo | State transitions, input validation, persistence, deduplication, retries, routing, share outcomes, and analytics contracts | Native App Links, Universal Links, store installation, or provider delivery |
-| Custom native build | Generated Branch and Firebase configuration, platform adapters, Android compilation, and a repeatable device test path | Real provider or store behavior until credentials, signed builds, and physical-device evidence are supplied |
+- **The referrer** generates and shares a stable identity.
+- **The recipient** arrives through a direct link or first launch after installation.
+- **The application** validates and persists attribution before navigation.
+- **Signup** freezes the accepted identity so a later callback cannot replace it.
+- **Analytics** exposes five durable milestones without becoming the reward authority.
 
-The result is reviewable in a browser without blurring the boundary between simulation and external proof.
+The browser demo makes the application behavior inspectable without credentials. The native configuration uses the real Branch and Firebase call shapes while keeping provider, store, and physical-device claims explicitly separate.
 
-## Product experience
+## Evidence at a glance
 
-The interface is built around one signature object: a five-node attribution signal. Each node illuminates only when its corresponding event is durably accepted.
-
-1. **Generate** creates a stable, human-readable `RAL-XXXXXXXX` identity.
-2. **Share** records the actual share result, including cancellation or failure.
-3. **Resolve** validates a direct or deferred callback through one strict parser.
-4. **Start** freezes the originating attribution before signup begins.
-5. **Verify** persists the accepted receipt before completion analytics and navigation.
-
-![Deterministic state machine](docs/visuals/state-machine.svg)
-
-Motion is finite and functional. Entry, state, share, validation, and completion transitions are bounded, clean up after themselves, and become immediately static when reduced motion is enabled.
-
-### Interface gallery
-
-| Responsive invite | Accepted callback |
+| Signal | Verified result |
 | --- | --- |
-| <img src="docs/screenshots/invite-mobile.png" alt="Mobile invite screen with a responsive referral card" width="340"> | <img src="docs/screenshots/onboarding-desktop.png" alt="Desktop onboarding screen with the accepted referral signal and event ledger" width="720"> |
+| Automated tests | **174 passing** across 12 Jest suites |
+| Coverage | **90.40% statements · 82.63% branches · 90.82% functions · 93.22% lines** |
+| Expo health | **21/22 Expo Doctor checks passed**; the remaining check is the documented Expo 56 Hermes regression |
+| Static quality | Strict TypeScript and ESLint with zero warnings |
+| Native surface | Clean Android/iOS Prebuild inspection plus Android debug compilation in CI |
+| Referral contract | Five required success events, typed diagnostics, durable receipts, and retry-safe event IDs |
+| Experience | Responsive web/native layout, light and dark themes, keyboard focus, 44-point controls, and reduced-motion support |
+
+## See the product
+
+### One referral identity, visible from generation onward
+
+![Generated referral identity with the five-stage signal and inspectable event ledger](docs/screenshots/generated-desktop.png)
+
+### Responsive member experience and attributed onboarding
+
+| Mobile referral entry | Validated direct-link onboarding |
+| --- | --- |
+| <img src="docs/screenshots/invite-mobile.png" alt="Mobile referral screen with a clear generate-link action" width="360"> | <img src="docs/screenshots/onboarding-desktop.png" alt="Desktop onboarding screen with a validated referral code and event trace" width="760"> |
 
 <details>
-<summary><strong>View verified completion state</strong></summary>
+<summary><strong>Open the verified signup state</strong></summary>
 
 <br>
 
-![Verified referred signup and event ledger](docs/screenshots/success-desktop.png)
+![Completed referred signup with the protected referral identity and accepted event trace](docs/screenshots/success-desktop.png)
 
 </details>
 
-## Five-minute technical walkthrough
+<details>
+<summary><strong>Open the complete desktop referral entry</strong></summary>
 
-No account, provider key, or device installation is needed for the web path.
+<br>
+
+![Desktop member referral entry before link generation](docs/screenshots/invite-desktop.png)
+
+</details>
+
+## Try the complete journey
+
+The reviewer path takes about two minutes and requires no account, API key, or installation.
 
 1. Open the [live demo](https://hasan-al-hussein.github.io/referral-attribution-lab/).
-2. Select **Generate my referral link** and observe `referral_link_generated` in the ledger.
-3. Select **Share my invitation**. The app uses Web Share where supported and a clipboard fallback otherwise.
-4. Open **Reliability controls**, then select **Simulate direct callback** or **Simulate deferred callback**.
-5. Complete the referred signup and watch the accepted journey reach `5/5`.
-6. Reset the lab, submit an invalid payload, or use an email containing `+fail` to inspect rejected and retryable branches.
+2. Select **Generate my referral link** and verify `referral_link_generated`.
+3. Select **Share my invitation**. The app uses Web Share when supported and a clipboard fallback otherwise.
+4. Open **Reliability controls**, then choose **Simulate direct callback** or **Simulate deferred callback**.
+5. Complete the referred signup and inspect the accepted journey in the event ledger.
+6. Reset the lab, submit an invalid payload, replay the same link, cancel sharing, or use an email containing `+fail` to exercise recovery paths.
 
-The deferred browser fixture sets the same first-session signal consumed by the native parser. It does not pretend that an app-store install happened.
+> [!IMPORTANT]
+> The deferred browser fixture proves parsing, persistence, routing, signup continuity, and instrumentation after a first-session-shaped callback. It does not pretend that a real app-store installation occurred.
+
+## What I engineered
+
+- **One orchestration boundary.** Screens never coordinate Branch, Firebase, storage, and navigation independently; `ReferralCoordinator` owns transition policy and serialization.
+- **Persist-before-route attribution.** A validated callback is durably stored before analytics or navigation, including cold-start delivery before the navigation tree is ready.
+- **Immutable signup identity.** Starting signup freezes the originating code and fingerprint, preventing a later callback from stealing an in-flight referral.
+- **Crash-aware completion.** A backend acceptance receipt is the commit point; analytics, cleanup, and success presentation can recover after interruption without relabeling an accepted signup as failed.
+- **Durable analytics delivery.** A bounded local outbox retries with the same 128-bit `event_id`; milestone receipts suppress concurrent and replayed emissions.
+- **Race-safe reset epochs.** Durable pointer publication, generation fencing, stale-writer repair, and retired-namespace cleanup prevent old sessions from overwriting new state.
+- **Fail-closed native configuration.** Package IDs, Branch key modes, domains, Firebase files, intent filters, entitlements, and runtime settings are validated before native generation.
+- **Truthful proof boundaries.** Browser behavior, generated native structure, provider delivery, store mediation, backend authority, and reward settlement are reported as distinct evidence levels.
+
+## How the referral travels
+
+![Five-stage referral state machine from generation to verified signup](docs/visuals/state-machine.svg)
+
+| Stage | Application guarantee |
+| --- | --- |
+| **Generate** | A stable, human-readable `RAL-XXXXXXXX` code and usable link are created for the demo member. |
+| **Share** | The actual OS/browser handoff result is recorded; cancellation is not counted as success. |
+| **Resolve** | Direct and deferred callbacks enter one strict parser, route allowlist, and deduplication path. |
+| **Start** | The exact accepted attribution identity is frozen before signup work begins. |
+| **Verify** | Completion is emitted only after the backend acceptance receipt exists. |
+
+### Direct and deferred paths
+
+| App already installed | App not installed |
+| --- | --- |
+| The Branch HTTPS link opens through iOS Universal Links or Android App Links. A cached cold-start or warm callback reaches the same coordinator. | Branch records the click, routes through the store, and returns attribution on first launch using platform-specific install handoff. The app then uses the same parser, persistence, and route policy. |
+| Repository proof covers callback parsing, persistence, buffering, routing, and duplicate suppression. | Repository proof covers the post-callback application path. Real store mediation requires the signed-device runbook. |
 
 ## Architecture
 
 ![Architecture and trust boundaries](docs/visuals/architecture.svg)
 
-The UI never calls Branch, Firebase, storage, or navigation directly. A single coordinator owns the transition policy, and platform files select the appropriate adapters.
-
 ```text
-screens
+React Native screens
   -> ReferralCoordinator
-     -> strict referral parser and domain rules
+     -> strict domain parser and route allowlist
      -> epoch-scoped AsyncStorage records
      -> durable analytics outbox and milestone receipts
-     -> web or native deep-link adapter
-     -> web or native share adapter
-     -> visible ledger or Firebase Analytics adapter
+     -> Branch or deterministic browser deep-link adapter
+     -> native or browser share adapter
+     -> Firebase Analytics or inspectable local event ledger
 ```
 
-### Reliability decisions
+Platform-specific files select adapters; product screens stay independent of provider SDK details. Analytics is observability, never the source of truth for eligibility or rewards.
 
-- **Persist before side effects.** A valid attribution is stored before analytics or routing.
-- **Freeze identity at signup start.** A later callback cannot replace an in-flight referral.
-- **Deduplicate by durable fingerprint.** Repeated callback delivery does not duplicate milestones.
-- **Serialize critical transitions.** Callback and signup operations cannot race each other in-process.
-- **Recover accepted outcomes.** A persisted backend receipt can complete analytics and navigation after interruption.
-- **Keep reward authority server-side.** The client preserves attribution but never decides eligibility or issues value.
+## Reliability by design
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the detailed data model, recovery cuts, concurrency policy, rollout plan, and production backend contract.
+| Silent production failure | Guardrail implemented | Deterministic evidence |
+| --- | --- | --- |
+| A link arrives while signup is freezing another referral | Shared serialized journey queue plus immutable frozen identity | Controlled link-versus-freeze interleaving tests |
+| The SDK replays the same callback | SHA-256-derived 128-bit fingerprint and durable processed receipts | Direct, deferred, duplicate, numeric-timestamp, and legacy replay tests |
+| Analytics fails after account acceptance | Acceptance receipt remains authoritative; post-commit work is retryable | Analytics timeout, cleanup failure, and restart recovery tests |
+| The app crashes between persistence, analytics, cleanup, and navigation | Pending attribution, outbox records, milestones, and accepted receipts hydrate on restart | Three commit-to-presentation recovery cuts |
+| A reset races an old asynchronous writer | Epoch pointer commit, generation fences, winner repair, and stale-key scavenging | Hung write, late write, retry, and cold-reload tests |
+| Corrupt local data looks valid enough to survive | Every read path validates, bounds, rewrites, or removes physical records | Poisoned journey, marker, milestone, outbox, and receipt fixtures |
+| Native credentials or identifiers are mismatched | Configuration fails closed before Prebuild or runtime | Test/live Branch, Firebase package, domain, and platform selection probes |
 
-## Technical highlights
+The full matrices are in [Reliability Evidence](docs/RELIABILITY_EVIDENCE.md), with deeper failure analysis in [Architecture](docs/ARCHITECTURE.md).
 
-| Area | Implementation |
-| --- | --- |
-| Application | Expo 56, React Native 0.85, React 19, strict TypeScript |
-| Navigation | React Navigation with buffered readiness and typed routes |
-| Deep links | Branch native adapter plus a deterministic browser adapter |
-| Analytics | Typed five-event contract, Firebase native delivery, durable outbox |
-| Persistence | AsyncStorage epochs, migration, stale-writer repair, receipt recovery |
-| Sharing | Native `Share.share`, Web Share, clipboard fallback, explicit outcomes |
-| Verification | Jest, Expo Doctor, web export, native prebuild inspection, Android CI compile |
-| Accessibility | Semantic labels, 44-point controls, keyboard focus, responsive layout, reduced motion |
-| Privacy | No ad ID permission, no committed credentials, no PII in analytics payloads |
-
-### Event contract
+## Analytics contract
 
 ```ts
 type RequiredReferralEventName =
@@ -126,11 +161,32 @@ type RequiredReferralEventName =
   | 'referral_signup_completed';
 ```
 
-Every required event carries a normalized referral identity and platform context. Diagnostics use a separate allowlisted reason vocabulary so malformed links and duplicates remain observable without leaking raw untrusted payloads.
+Every required event carries a normalized `referral_code`, `platform`, `event_id`, `flow_id`, `schema_version`, `app_version`, and UTC occurrence time. Optional attribution fields distinguish direct, deferred, and browser-fixture paths.
+
+Failure and diagnostic events cover generation, share cancellation/failure, link resolution, rejected codes, signup failure, cleanup failure, and duplicate suppression. Reasons use a bounded allowlist; raw URLs, provider objects, form data, and credentials do not enter analytics.
+
+## Technology
+
+| Area | Choice |
+| --- | --- |
+| Application | Expo 56 · React Native 0.85 · React 19 · strict TypeScript |
+| Navigation | React Navigation with typed routes and buffered readiness |
+| Deep linking | Branch native adapter plus a deterministic browser adapter |
+| Analytics | React Native Firebase Analytics plus a typed local evidence adapter |
+| Persistence | AsyncStorage epochs, migration, outbox, receipts, recovery, and cleanup |
+| Sharing | Native `Share.share`, Web Share, clipboard fallback, explicit outcomes |
+| Motion | Finite transform/opacity primitives with reduced-motion behavior |
+| Verification | Jest, Expo Doctor, web export, native Prebuild inspection, Android CI compile |
+
+### Why Expo custom builds
+
+Expo keeps one TypeScript application surface while still generating inspectable Android and iOS projects. This is **not an Expo Go implementation**: Branch and React Native Firebase require native modules, associated-domain/intent-filter configuration, and a custom development, preview, or production build.
+
+### Why Branch
+
+Firebase Dynamic Links shut down in 2025. Branch provides link creation, direct routing, and deferred attribution through one subscription API. Android can use the Play Install Referrer path; iOS NativeLink supports a pasteboard-mediated first-install handoff when configured and consented to.
 
 ## Run locally
-
-### Web demo
 
 Requirements: Node.js 22 or newer and npm.
 
@@ -139,82 +195,47 @@ npm ci
 npm run web
 ```
 
-No environment file is required. With `NATIVE_SDK_BUILD` unset, the project uses deterministic local adapters and performs no provider network calls.
+No environment file is required for the credential-free browser build. With `NATIVE_SDK_BUILD` unset, deterministic local adapters perform no provider network calls.
 
-Create a production web export:
-
-```bash
-npm run build:web
-npx serve dist
-```
-
-### Quality gates
+### Run the full quality gate
 
 ```bash
-npm run typecheck
-npm run lint
-npm test
+npm run check
+npm test -- --coverage
 npm run build:web
 npx expo-doctor
 ```
 
-CI additionally generates Android and iOS native projects with non-networked, package-correct fixtures. The Android job compiles a debug binary to verify the generated native surface.
+Native mode requires Branch/Firebase projects, package-correct configuration files, and a custom build. Follow [Native Proof Runbook](docs/NATIVE_PROOF_RUNBOOK.md) for the physical-device and store matrix.
 
-### Verification snapshot
-
-| Gate | Result |
-| --- | --- |
-| TypeScript | Passed with no emit |
-| ESLint | Passed with zero warnings |
-| Jest | 12 suites, 174 tests passed |
-| Coverage | 90.40% statements, 82.63% branches, 90.82% functions, 93.22% lines |
-| Expo Doctor | 21 of 21 checks passed |
-| Web export | Production bundle generated from 608 modules |
-| Android native structure | Clean prebuild and verification passed with fixtures |
-| iOS native structure | Verified in Linux CI because Windows cannot generate the iOS project |
-
-## Native provider mode
-
-Native mode requires a custom Expo development, preview, or production build. Expo Go cannot load the Branch and React Native Firebase modules used here.
-
-Copy the safe template and supply values from provider projects you control:
-
-```bash
-copy .env.example .env.local
-```
-
-Required native configuration includes:
-
-- A Branch test or live key with the matching Branch domain.
-- Android and iOS Firebase configuration files whose package IDs match `com.hasanalhussein.referrallab`.
-- A custom build generated with `NATIVE_SDK_BUILD=1`.
-
-The config fails closed on malformed domains, mismatched package IDs, wrong Branch key prefixes, duplicate domains, or missing platform files. Full setup and physical-device evidence steps are in [docs/NATIVE_PROOF_RUNBOOK.md](docs/NATIVE_PROOF_RUNBOOK.md).
+> [!NOTE]
+> Current Expo Doctor passes 21 of 22 checks. The remaining warning is the Hermes V1 memory regression fixed in Expo SDK 57 / React Native 0.86. The project stays on its tested Expo 56 compatibility set for this release; the next runtime upgrade is tracked as a deliberate migration rather than hidden behind a forced dependency change.
 
 ## Repository map
 
 ```text
 src/
-  application/       orchestration, serialization, reset, recovery
-  components/        signal visualization, event ledger, shared UI
-  domain/            referral parser, invariants, event vocabulary
+  application/       orchestration, serialization, reset, and recovery
+  components/        referral signal, event ledger, and shared UI
+  domain/            parser, invariants, identities, and event vocabulary
   motion/            reduced-motion-aware interaction primitives
-  screens/            invite, referred onboarding, completion
-  services/           deep links, analytics, sharing, persistence
-  theme/              light and dark semantic design tokens
+  screens/           member invite, referred onboarding, and completion
+  services/          deep links, analytics, sharing, persistence, mock API
+  theme/             light and dark semantic design tokens
 docs/
-  visuals/            code-native README and architecture graphics
-  ARCHITECTURE.md      detailed system design and failure analysis
-  RELIABILITY_EVIDENCE.md verification matrix and proof boundaries
-  NATIVE_PROOF_RUNBOOK.md device and store validation procedure
-  SECURITY_AND_PRIVACY.md threat model and data-handling policy
+  visuals/           code-native hero, architecture, and state-machine graphics
+  screenshots/       responsive product evidence
+  ARCHITECTURE.md
+  RELIABILITY_EVIDENCE.md
+  SECURITY_AND_PRIVACY.md
+  NATIVE_PROOF_RUNBOOK.md
 ```
 
 ## Proof boundary
 
-This repository demonstrates the complete application-side attribution contract and a compiled native integration surface. It does not claim real Branch dashboard delivery, signed-domain association, store-mediated deferred installation, Firebase DebugView ingestion, production account creation, fraud eligibility, or reward settlement without the matching provider accounts, backend, signed builds, and physical-device evidence.
+This repository demonstrates the complete application-side attribution contract, deterministic browser behavior, generated native configuration, and Android compilation. It does **not** claim real Branch dashboard delivery, signed-domain association, store-mediated installation, Firebase DebugView ingestion, production account creation, fraud eligibility, or reward settlement without matching provider accounts, signed builds, physical devices, stores, and an authoritative backend.
 
-That boundary is a feature of the engineering work: evidence remains precise, reproducible, and honest.
+That boundary is deliberate: evidence should be reproducible and precise, not inflated.
 
 ## References
 
@@ -230,6 +251,6 @@ MIT. See [LICENSE](LICENSE).
 
 <div align="center">
 
-Built by [Hasan Al Hussein](https://github.com/Hasan-Al-Hussein) as a mobile growth-engineering and reliability case study.
+Designed and engineered by **[Hasan Ahmed](https://github.com/Hasan-Al-Hussein)** as a mobile growth-engineering, attribution, and reliability case study.
 
 </div>

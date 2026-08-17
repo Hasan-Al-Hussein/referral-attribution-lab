@@ -33,9 +33,16 @@ Before using monetary rewards or real customer data, add an authenticated backen
 
 ## Dependency review
 
-`npm audit` currently reports 13 moderate findings and no high or critical findings. Twelve entries are a cascade through the Expo configuration toolchain. The concrete advisory is `uuid` below 11.1.1 through Expo's `xcode` parser and concerns caller-supplied buffers for UUID v3, v5, or v6. This application does not call those UUID variants or pass buffers to them.
+The dependency lock was refreshed with the compatible `npm audit fix` path, including patched `js-yaml` and `nanoid` transitive releases and current Expo 56 patch packages. After that remediation, `npm audit` reports 19 affected dependency nodes: 12 high and 7 moderate, with no critical findings. The count is a dependency-graph cascade rather than 19 independent vulnerabilities.
 
-The automated remediation proposes an incompatible downgrade from Expo 56 to Expo 46, so it was not applied. Dependencies remain locked to the Expo 56 compatibility set, and the advisory should be re-evaluated during the planned Expo 57 migration or when Expo updates its config-plugin dependency chain.
+The unresolved findings reduce to build-toolchain advisories:
+
+- `image-size` is pulled through Metro and has denial-of-service advisories in its ICNS, JXL, and HEIF parsers. The application does not accept user-supplied image files or invoke those parsers at runtime; exposure is limited to developer/CI bundling inputs controlled by the repository.
+- `uuid` below 11.1.1 is pulled through Expo's `xcode` configuration parser and concerns caller-supplied buffers for UUID v3, v5, or v6. This application does not call those variants or pass buffers to them.
+
+`npm audit fix --force` proposes downgrading the project to Expo 53 and React Native 0.72, which breaks the verified Expo 56 compatibility set and is not a safe remediation. The project therefore keeps its reproducible lock, restricts build inputs, runs tests and Prebuild inspection in CI, and will re-evaluate these advisories when compatible Metro/Xcode releases land. This is a documented residual build-time risk, not a claim of zero vulnerabilities.
+
+Expo Doctor separately reports the Hermes V1 memory regression affecting the current Expo 56 / React Native 0.85 runtime. Expo identifies SDK 57 with React Native 0.86.2 or later as the compatible fix. That runtime migration should be performed as an intentional upgrade with native Prebuild, Android compilation, full regression tests, and physical-device profiling; it is not masked by downgrading or suppressing the check.
 
 ## Reporting a vulnerability
 
