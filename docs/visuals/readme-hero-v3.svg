@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="ral-title-v3 ral-desc-v3">
+  <title id="ral-title-v3">Referral Attribution Lab</title>
+  <desc id="ral-desc-v3">A five-stage referral signal flows from link generation through sharing, resolution, signup start, and verified signup.</desc>
+
+  <defs>
+    <linearGradient id="ral-canvas-v3" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07171A"/>
+      <stop offset=".58" stop-color="#102A2E"/>
+      <stop offset="1" stop-color="#0B3443"/>
+    </linearGradient>
+    <linearGradient id="ral-beam-v3" x1="168" y1="0" x2="1032" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5DD6C7"/>
+      <stop offset=".64" stop-color="#74AEDA"/>
+      <stop offset="1" stop-color="#F0A15C"/>
+    </linearGradient>
+    <radialGradient id="ral-verified-core-v3" cx="38%" cy="30%" r="78%">
+      <stop stop-color="#FFC18B"/>
+      <stop offset="1" stop-color="#B95E28"/>
+    </radialGradient>
+    <filter id="ral-line-glow-v3" x="-10%" y="-400%" width="120%" height="900%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ral-packet-glow-v3" x="-400%" y="-400%" width="900%" height="900%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .ral-sans-v3{font-family:Inter,"Segoe UI",Arial,sans-serif}
+      .ral-mono-v3{font-family:Consolas,Menlo,monospace}
+      .ral-flow-line-v3{stroke-dasharray:18 15;animation:ralFlowLineV3 1.55s linear infinite}
+      .ral-stage-halo-v3{opacity:.14;animation:ralStageHaloV3 4.5s ease-in-out infinite}
+      .ral-stage-label-v3{opacity:.66;animation:ralStageLabelV3 4.5s ease-in-out infinite}
+      .ral-stage-1-v3{animation-delay:0s}
+      .ral-stage-2-v3{animation-delay:.9s}
+      .ral-stage-3-v3{animation-delay:1.8s}
+      .ral-stage-4-v3{animation-delay:2.7s}
+      .ral-stage-5-v3{animation-delay:3.6s}
+      .ral-footer-signal-v3{animation:ralFooterSignalV3 2.8s ease-in-out infinite}
+      @keyframes ralFlowLineV3{to{stroke-dashoffset:-66}}
+      @keyframes ralStageHaloV3{0%,15%,100%{opacity:.14}5%,10%{opacity:.9}}
+      @keyframes ralStageLabelV3{0%,15%,100%{opacity:.66}5%,10%{opacity:1}}
+      @keyframes ralFooterSignalV3{0%,100%{opacity:.45}50%{opacity:1}}
+      @media(prefers-reduced-motion:reduce){
+        .ral-flow-line-v3,.ral-stage-halo-v3,.ral-stage-label-v3,.ral-footer-signal-v3{animation:none}
+        .ral-stage-halo-v3{opacity:.28}
+        .ral-stage-label-v3{opacity:1}
+        .ral-motion-packet-v3{display:none}
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="520" rx="32" fill="url(#ral-canvas-v3)"/>
+  <g opacity=".11" stroke="#D9EFEC">
+    <path d="M0 88h1200M0 176h1200M0 264h1200M0 352h1200M0 440h1200"/>
+    <path d="M104 0v520M216 0v520M328 0v520M440 0v520M552 0v520M664 0v520M776 0v520M888 0v520M1000 0v520M1112 0v520"/>
+  </g>
+
+  <rect x="56" y="48" width="72" height="28" rx="14" fill="#153E3B" stroke="#5DD6C7" stroke-opacity=".55"/>
+  <text x="92" y="67" text-anchor="middle" class="ral-mono-v3" font-size="11" font-weight="700" fill="#8AE8DD" letter-spacing="1.4">CASE 01</text>
+  <text x="56" y="132" class="ral-sans-v3" font-size="52" font-weight="800" fill="#EFF9F8" letter-spacing="-1.8">Referral Attribution Lab</text>
+  <text x="58" y="169" class="ral-sans-v3" font-size="18" fill="#B8CCCE">Reliable deep-link attribution, modeled as an inspectable state machine.</text>
+
+  <path d="M168 300H1032" stroke="#29474E" stroke-width="5" stroke-linecap="round"/>
+  <path d="M168 300H1032" class="ral-flow-line-v3" stroke="url(#ral-beam-v3)" stroke-width="5" stroke-linecap="round" filter="url(#ral-line-glow-v3)"/>
+
+  <g class="ral-motion-packet-v3" aria-hidden="true">
+    <circle cx="168" cy="300" r="15" fill="none" stroke="#F7BC84" stroke-width="2" opacity=".34">
+      <animate attributeName="cx" values="168;1032" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="8;16;8" dur=".75s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;.34;.34;0" keyTimes="0;.05;.95;1" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="168" cy="300" r="6" fill="#FFF1E5" stroke="#F0A15C" stroke-width="3" filter="url(#ral-packet-glow-v3)">
+      <animate attributeName="cx" values="168;1032" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.05;.95;1" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g class="ral-sans-v3" text-anchor="middle">
+    <g transform="translate(168 300)">
+      <circle class="ral-stage-halo-v3 ral-stage-1-v3" r="40" fill="none" stroke="#5DD6C7" stroke-width="2"/>
+      <circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/>
+      <text y="5" font-size="14" font-weight="800" fill="#EFF9F8">01</text>
+      <text class="ral-stage-label-v3 ral-stage-1-v3" y="62" font-size="12" font-weight="700" fill="#C9E3E0">GENERATE</text>
+    </g>
+    <g transform="translate(384 300)">
+      <circle class="ral-stage-halo-v3 ral-stage-2-v3" r="40" fill="none" stroke="#5DD6C7" stroke-width="2"/>
+      <circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/>
+      <text y="5" font-size="14" font-weight="800" fill="#EFF9F8">02</text>
+      <text class="ral-stage-label-v3 ral-stage-2-v3" y="62" font-size="12" font-weight="700" fill="#C9E3E0">SHARE</text>
+    </g>
+    <g transform="translate(600 300)">
+      <circle class="ral-stage-halo-v3 ral-stage-3-v3" r="40" fill="none" stroke="#74AEDA" stroke-width="2"/>
+      <circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/>
+      <text y="5" font-size="14" font-weight="800" fill="#EFF9F8">03</text>
+      <text class="ral-stage-label-v3 ral-stage-3-v3" y="62" font-size="12" font-weight="700" fill="#C8DCF1">RESOLVE</text>
+    </g>
+    <g transform="translate(816 300)">
+      <circle class="ral-stage-halo-v3 ral-stage-4-v3" r="40" fill="none" stroke="#74AEDA" stroke-width="2"/>
+      <circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/>
+      <text y="5" font-size="14" font-weight="800" fill="#EFF9F8">04</text>
+      <text class="ral-stage-label-v3 ral-stage-4-v3" y="62" font-size="12" font-weight="700" fill="#C8DCF1">START</text>
+    </g>
+    <g transform="translate(1032 300)">
+      <circle class="ral-stage-halo-v3 ral-stage-5-v3" r="43" fill="none" stroke="#F0A15C" stroke-width="2"/>
+      <circle r="34" fill="#4A2B18" stroke="#F0A15C" stroke-width="3"/>
+      <circle r="25" fill="url(#ral-verified-core-v3)" opacity=".25"/>
+      <path d="M-10 0l7 7 14-17" fill="none" stroke="#FFF1E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text class="ral-stage-label-v3 ral-stage-5-v3" y="68" font-size="12" font-weight="800" fill="#F7BC84">VERIFY</text>
+    </g>
+  </g>
+
+  <g transform="translate(56 430)">
+    <rect width="1088" height="52" rx="16" fill="#102126" stroke="#29474E"/>
+    <circle cx="28" cy="26" r="5" fill="#5DD6C7" class="ral-footer-signal-v3"/>
+    <text x="45" y="31" class="ral-mono-v3" font-size="12" fill="#B8CCCE">PERSIST FIRST</text>
+    <circle cx="252" cy="26" r="5" fill="#74AEDA"/>
+    <text x="269" y="31" class="ral-mono-v3" font-size="12" fill="#B8CCCE">DEDUPE ALWAYS</text>
+    <circle cx="491" cy="26" r="5" fill="#F0A15C"/>
+    <text x="508" y="31" class="ral-mono-v3" font-size="12" fill="#B8CCCE">CLIENT IS NOT REWARD AUTHORITY</text>
+    <text x="1050" y="31" text-anchor="end" class="ral-mono-v3" font-size="11" font-weight="700" fill="#8AE8DD">EXPO / RN / BRANCH / FIREBASE</text>
+  </g>
+</svg>
