@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/visuals/readme-hero.svg" alt="Referral Attribution Lab — reliable referral identity from share to verified signup" width="100%">
+<img src="docs/visuals/readme-hero-v2.svg" alt="Referral Attribution Lab — reliable referral identity from share to verified signup" width="100%">
 
 # Referral Attribution Lab
 

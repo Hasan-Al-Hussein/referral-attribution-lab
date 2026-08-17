@@ -11,8 +11,8 @@
     <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <style>
       .sans{font-family:Inter,Segoe UI,Arial,sans-serif}.mono{font-family:Consolas,Menlo,monospace}
-      .signal{stroke-dasharray:9 12;animation:flow 2.6s linear infinite}.pulse{animation:pulse 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-      .fade{animation:fade 3.2s ease-in-out infinite}@keyframes flow{to{stroke-dashoffset:-42}}@keyframes pulse{0%,100%{transform:scale(.86);opacity:.65}50%{transform:scale(1.16);opacity:1}}@keyframes fade{0%,100%{opacity:.45}50%{opacity:1}}
+      .signal{stroke-dasharray:9 12;animation:flow 2.6s linear infinite}.pulse{animation:pulse 2.6s ease-in-out infinite}.fade{animation:fade 3.2s ease-in-out infinite}
+      @keyframes flow{to{stroke-dashoffset:-42}}@keyframes pulse{0%,100%{opacity:.68}50%{opacity:1}}@keyframes fade{0%,100%{opacity:.45}50%{opacity:1}}
       @media(prefers-reduced-motion:reduce){.signal,.pulse,.fade{animation:none}}
     </style>
   </defs>
@@ -29,7 +29,7 @@
       <g transform="translate(168 284)"><circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">01</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">GENERATE</text></g>
       <g transform="translate(384 284)"><circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">02</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">SHARE</text></g>
       <g transform="translate(600 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">03</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">RESOLVE</text></g>
-      <g transform="translate(816 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">04</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">SIGN UP</text></g>
+      <g transform="translate(816 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">04</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">START</text></g>
       <g transform="translate(1032 284)">
         <g class="pulse"><circle r="34" fill="#4A2B18" stroke="#F0A15C" stroke-width="3"/><circle r="24" fill="#F0A15C" opacity=".17"/><path d="M-10 0l7 7 14-17" fill="none" stroke="#FFF1E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
         <text y="68" font-size="12" font-weight="800" fill="#F0A15C">VERIFY</text>
