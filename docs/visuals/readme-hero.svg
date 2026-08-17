@@ -30,7 +30,10 @@
       <g transform="translate(384 284)"><circle r="28" fill="#102126" stroke="#5DD6C7" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">02</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">SHARE</text></g>
       <g transform="translate(600 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">03</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">RESOLVE</text></g>
       <g transform="translate(816 284)"><circle r="28" fill="#102126" stroke="#74AEDA" stroke-width="3"/><text y="5" font-size="14" font-weight="800" fill="#EFF9F8">04</text><text y="62" font-size="12" font-weight="700" fill="#B8CCCE">SIGN UP</text></g>
-      <g transform="translate(1032 284)" class="pulse"><circle r="34" fill="#4A2B18" stroke="#F0A15C" stroke-width="3"/><circle r="24" fill="#F0A15C" opacity=".17"/><path d="M-10 0l7 7 14-17" fill="none" stroke="#FFF1E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text y="68" font-size="12" font-weight="800" fill="#F0A15C">VERIFY</text></g>
+      <g transform="translate(1032 284)">
+        <g class="pulse"><circle r="34" fill="#4A2B18" stroke="#F0A15C" stroke-width="3"/><circle r="24" fill="#F0A15C" opacity=".17"/><path d="M-10 0l7 7 14-17" fill="none" stroke="#FFF1E5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <text y="68" font-size="12" font-weight="800" fill="#F0A15C">VERIFY</text>
+      </g>
     </g>
   </g>
   <g transform="translate(56 430)">
