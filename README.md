@@ -49,7 +49,7 @@ The browser demo makes the application behavior inspectable without credentials.
 
 ### One referral identity, visible from generation onward
 
-![Generated referral identity with the five-stage signal and inspectable event ledger](docs/screenshots/generated-desktop.png)
+![Complete generated referral identity with the five-stage signal, shareable link, success confirmation, and inspectable event ledger](docs/screenshots/generated-desktop-full.png)
 
 ### Responsive member experience and attributed onboarding
 
