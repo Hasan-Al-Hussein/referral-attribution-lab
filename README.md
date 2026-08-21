@@ -123,6 +123,27 @@ The reviewer path takes about two minutes and requires no account, API key, or i
 
 ![Architecture and trust boundaries](docs/visuals/architecture.svg)
 
+### Runtime dependency map
+
+```mermaid
+flowchart LR
+  UI["Invite / Onboarding / Success screens"] --> C["ReferralCoordinator"]
+  C --> D["Referral parser + domain policy"]
+  C --> S["AsyncStorage attribution + milestones + analytics outbox"]
+  C --> API["Mock referral API"]
+  C --> DL["DeepLinkService"]
+  C --> SH["ShareService"]
+  C --> AT["AnalyticsTracker"]
+  DL --> DW["Web demo adapter"]
+  DL --> DN["Branch native adapter"]
+  SH --> SW["Web Share / clipboard"]
+  SH --> SN["Native Share.share"]
+  AT --> AW["Visible web ledger"]
+  AT --> AN["Firebase native adapter"]
+```
+
+The coordinator is the only component allowed to advance referral state. Screens request operations and render typed results; provider-specific adapters remain replaceable at the service boundary.
+
 ```text
 React Native screens
   -> ReferralCoordinator
